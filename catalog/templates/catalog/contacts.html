@@ -37,6 +37,20 @@
                             <td class="w-25">Адрес</td>
                             <td>Redmond,WA,98052-6399</td>
                         </tr>
+                        {% for contact in contact.all %}
+                        <tr>
+                            <td class="w-25">Имя</td>
+                            <td>{{contact.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Фамилия</td>
+                            <td>{{contact.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Телефон</td>
+                            <td>{{contact.phone}}</td>
+                        </tr>
+                        {% endfor %}
                     </table>
                 </div>
             </div>

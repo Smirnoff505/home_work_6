@@ -1,0 +1,138 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Iphone 15 PRO MAX",
+      "description": "Iphone 15 PRO MAX топчик",
+      "image": "",
+      "category": 1,
+      "price": 150000,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Samsung Z100",
+      "description": "Samsung Z100 нормальный телефон",
+      "image": "",
+      "category": 1,
+      "price": 102000,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "TV LG",
+      "description": "Телевизор",
+      "image": "",
+      "category": 2,
+      "price": 55000,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "TV Samsung",
+      "description": "Телевизор диагональ 106\"",
+      "image": "",
+      "category": 2,
+      "price": 97050,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "МФУ Canon",
+      "description": "Принтер, сканер, копир",
+      "image": "",
+      "category": 4,
+      "price": 85000,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "Системный блок",
+      "description": "Системнынй блок Xiaomi",
+      "image": "",
+      "category": 3,
+      "price": 35000,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "name": "Macbook",
+      "description": "Macbook Apple",
+      "image": "",
+      "category": 3,
+      "price": 250000,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "Моноблок MacOS",
+      "description": "Техника Apple",
+      "image": "",
+      "category": 3,
+      "price": 350000,
+      "data_creation": "2023-11-17",
+      "last_modified_date": "2023-11-17"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Телефоны",
+      "description": "Звонилки, смартфоны, айфоны, майфоны"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "TV",
+      "description": "Телевизоры, видеопанели и т.д."
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Компьютеры",
+      "description": "Системные блоки, ноутбуки, моноблоки"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Оргтехника",
+      "description": "Принтеры, копиры, сканеры."
+    }
+  }
+]
