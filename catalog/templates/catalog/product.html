@@ -1,0 +1,20 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">COOLstore</h1>
+    <p class="lead">Описание продукта</p>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <img src="/media/{{ product.image }}" class="card-img-top" style="width: 18rem;"/>
+            <div class="card-body">
+                <h5 class="card-title" style="margin-top: 20px;">{{ product.name }}</h5>
+                <p class="card-text" style="margin-top: 20px;">{{ product.description }}</p>
+                <a href="/" class="btn btn-primary">К товарам</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
