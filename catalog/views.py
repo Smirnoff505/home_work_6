@@ -1,14 +1,12 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
 from catalog.models import Product, Contact
 
 
-def home(request):
-    product_list = Product.objects.all()
-    context = {
-        'object_list': product_list
-    }
-    return render(request, 'catalog/home.html', context)
+class ProductListView(ListView):
+    """Просмотр всех объектов модели Product"""
+    model = Product
 
 
 def contacts(request):
@@ -22,12 +20,6 @@ def contacts(request):
     return render(request, 'catalog/contacts.html', {'contact': contact})
 
 
-def product(request, pk):
-    """
-    Выводит станицу с описанием. На основании переданного PK
-    """
-    product_item = Product.objects.get(pk=pk)
-    context = {
-        'product': product_item
-    }
-    return render(request, 'catalog/product.html', context)
+class ProductDetailView(DetailView):
+    """Просмотр одного объекта модели Product"""
+    model = Product

@@ -20,7 +20,7 @@
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li>- {{object.description|truncatechars:100}}</li>
                     </ul>
-                    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product' object.pk %}">Подробнее</a>
+                    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:view' object.pk %}">Подробнее</a>
                 </div>
             </div>
         </div>
