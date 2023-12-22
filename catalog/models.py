@@ -37,7 +37,7 @@ class Category(models.Model):
 
 class Contact(models.Model):
     first_name = models.CharField(max_length=50, verbose_name='Имя')
-    last_name = models.CharField(max_length=50, verbose_name='Фамилмя')
+    last_name = models.CharField(max_length=50, verbose_name='Фамилия')
     phone = models.IntegerField(verbose_name='Телефон')
 
     def __str__(self):
@@ -46,3 +46,17 @@ class Contact(models.Model):
     class Meta:
         verbose_name = 'Контакт'
         verbose_name_plural = 'Контакты'
+
+
+class Version(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+    version_number = models.IntegerField(verbose_name='Номер версии')
+    version_name = models.CharField(max_length=200, verbose_name='Название версии')
+    is_current = models.BooleanField(default=False, verbose_name='Признак текущей версии')
+
+    def __str__(self):
+        return f'{self.product}, {self.version_number}'
+
+    class Meta:
+        verbose_name = 'Версия'
+        verbose_name_plural = 'Версии'

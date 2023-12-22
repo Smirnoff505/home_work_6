@@ -15,6 +15,7 @@
                 <h5 class="card-title" style="margin-top: 20px;">{{ product.name }}</h5>
                 <p class="card-text" style="margin-top: 20px;">{{ product.description }}</p>
                 <a href="/" class="btn btn-primary">К товарам</a>
+                <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-warning">Редактировать</a>
             </div>
         </div>
     </div>
