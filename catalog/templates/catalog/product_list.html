@@ -6,6 +6,11 @@
     <h1 class="display-4">COOLStore</h1>
     <p class="lead">COOLStore - отличное место наполненное гаджетами</p>
 </div>
+<div class="row text-center">
+    <div class="col-12 mb-4">
+        <a class="p-2 btn btn-outline-success" href="{% url 'catalog:create_product' %}">Добавить товар</a>
+    </div>
+</div>
 
 <div class="container">
     <div class="row text-center">
@@ -21,6 +26,13 @@
                         <li>- {{object.description|truncatechars:100}}</li>
                     </ul>
                     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:view' object.pk %}">Подробнее</a>
+                </div>
+                <div class="card-footer">
+                    {% if object.active_version_number  %}
+                        <P class="my-0 font-weight-normal">Версия продукта: {{object.active_version_number}}</P>
+                    {% else %}
+                        <P class="my-0 font-weight-normal">Нет активных версий</P>
+                    {% endif %}
                 </div>
             </div>
         </div>
