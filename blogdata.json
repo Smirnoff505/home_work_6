@@ -9,7 +9,7 @@
       "preview": "imj_blog/lglogo.jpg",
       "create_date": "2023-12-02T19:26:14.338Z",
       "is_publication": true,
-      "views_count": 1
+      "views_count": 111
     }
   },
   {
@@ -22,7 +22,7 @@
       "preview": "imj_blog/Samsung-Logo-1993.png",
       "create_date": "2023-12-02T19:27:40.638Z",
       "is_publication": true,
-      "views_count": 1
+      "views_count": 6
     }
   },
   {
@@ -34,8 +34,8 @@
       "slug": "xiaomi",
       "preview": "imj_blog/xiaomi.jpg",
       "create_date": "2023-12-02T19:29:22.181Z",
-      "is_publication": false,
-      "views_count": 0
+      "is_publication": true,
+      "views_count": 6
     }
   }
 ]
