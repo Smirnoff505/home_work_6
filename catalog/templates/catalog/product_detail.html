@@ -15,7 +15,16 @@
                 <h5 class="card-title" style="margin-top: 20px;">{{ product.name }}</h5>
                 <p class="card-text" style="margin-top: 20px;">{{ product.description }}</p>
                 <a href="/" class="btn btn-primary">К товарам</a>
+                {% if perms.catalog.change_product or user == product.owner %}
                 <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-warning">Редактировать</a>
+                {% endif %}
+                {% if perms.catalog.set_published %}
+                {% if not product.is_published %}
+                <a href="{% url 'catalog:to_published' object.pk %}" class="btn btn-success">Опубликовать</a>
+                {% else %}
+                <a href="{% url 'catalog:to_published' object.pk %}" class="btn btn-success">Снять с публикации</a>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>

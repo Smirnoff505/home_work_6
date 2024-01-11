@@ -1,7 +1,9 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import permission_required, user_passes_test
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import ValidationError
 from django.forms import inlineformset_factory
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
@@ -27,6 +29,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     """Редактирование продукта"""
     model = Product
     form_class = ProductForm
+
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        if self.object.owner != self.request.user and not self.request.user.is_staff:
+            raise Http404
+        return self.object
 
     def get_success_url(self):
         return reverse('catalog:update_product', args=[self.kwargs.get('pk')])
@@ -88,6 +96,19 @@ def contacts(request):
     return render(request, 'catalog/contacts.html', {'contact': contact})
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(LoginRequiredMixin, DetailView):
     """Просмотр одного объекта модели Product"""
     model = Product
+
+
+@user_passes_test(lambda u: u.is_staff)
+@permission_required('catalog.set_published')
+def to_published(request, pk):
+    """Функция для переключения статуса опубликованное/неопубликованное"""
+    product_item = get_object_or_404(Product, pk=pk)
+    if product_item.is_published:
+        product_item.is_published = False
+    else:
+        product_item.is_published = True
+    product_item.save()
+    return redirect(reverse('catalog:view', args=[pk]))
