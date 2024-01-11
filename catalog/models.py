@@ -12,6 +12,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Цена')
     data_creation = models.DateField(verbose_name='Дата создания')
     last_modified_date = models.DateField(verbose_name='Дата последнего изменения')
+    is_published = models.BooleanField(default=False, verbose_name='Публикация')
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='Продавец')
 
@@ -21,6 +22,12 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+        permissions = [
+            (
+                'set_published',
+                'Can publish posts'
+            )
+        ]
 
 
 class Category(models.Model):

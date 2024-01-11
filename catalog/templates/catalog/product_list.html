@@ -8,7 +8,9 @@
 </div>
 <div class="row text-center">
     <div class="col-12 mb-4">
+
         <a class="p-2 btn btn-outline-success" href="{% url 'catalog:create_product' %}">Добавить товар</a>
+
     </div>
 </div>
 
@@ -24,7 +26,7 @@
                     <h1 class="card-title pricing-card-title">{{object.price}} руб.</h1>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li>- {{ object.description|truncatechars:100 }}</li>
-                        <li>- {{ object.owner|default:"Без продавца" }}</li>
+                        <p><li>- {{ object.owner|default:'Без продавца' }}</li></p>
                     </ul>
                     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:view' object.pk %}">Подробнее</a>
                 </div>
