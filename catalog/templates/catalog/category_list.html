@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">COOLStore</h1>
+    <p class="lead">COOLStore - отличное место наполненное гаджетами</p>
+</div>
+
+
+<div class="container">
+    <div class="row text-center">
+        {% for cat in categories %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4>Категория</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="my-0 font-weight-normal">{{ cat.name }}</h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

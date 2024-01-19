@@ -8,7 +8,8 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from catalog.forms import ProductForm, VersionForm
-from catalog.models import Product, Contact, Version
+from catalog.models import Product, Contact, Version, Category
+from catalog.services import get_cached_categories
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
@@ -112,3 +113,13 @@ def to_published(request, pk):
         product_item.is_published = True
     product_item.save()
     return redirect(reverse('catalog:view', args=[pk]))
+
+
+class CategoryListView(ListView):
+    """Просмотр всех объектов модели Category"""
+    model = Category
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['categories'] = get_cached_categories()
+        return context_data
